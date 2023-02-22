@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://admin:wwwwww@cluster0.aarwuzf.mongodb.net/?retryWrites=true&w=majority',)
-.then(() => console.log('DB +'))
+.then(() => console.log('DB connect'))
 .catch((err) => console.log('DB error', err));
 
 
