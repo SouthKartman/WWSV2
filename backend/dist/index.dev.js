@@ -47,10 +47,10 @@ app.post('/auth/login', _auth.loginValidation, UserControl.login); //MainLogisti
 app.post('/auth/register', _auth.registerValidation, UserControl.register); //Checkin Users
 
 app.get('/auth/me', _checkAuth["default"], UserControl.getMe); //Post
-// app.get('/posts',PostController.getAll);
-// app.get('/posts:id', PostController.getOne);
 
-app.post('/posts', _checkAuth["default"], _auth.postCreateValidation, PostController.create); // app.delete('/posts', PostController.remove);
+app.post('/posts', _checkAuth["default"], _auth.postCreateValidation, PostController.create); // app.get('/posts:id', PostController.getOne);
+
+app.get('/posts', PostController.getAll); // app.delete('/posts', PostController.remove);
 // app.patch('/posts', PostController.update);
 //Server
 

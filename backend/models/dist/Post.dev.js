@@ -16,7 +16,8 @@ var PostSchema = new _mongoose["default"].Schema({
   },
   text: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   tags: {
     type: Array,
@@ -29,9 +30,9 @@ var PostSchema = new _mongoose["default"].Schema({
   imageUrl: String,
   user: {
     type: _mongoose["default"].Schema.Types.ObjectId,
-    ref: 'user',
-    required: true,
-    unique: true
+    ref: 'User',
+    required: true // unique:true,
+
   },
   avatarUrl: String
 }, {

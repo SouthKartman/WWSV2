@@ -51,9 +51,9 @@ app.get('/auth/me',checkAuth, UserControl.getMe);
 
 //Post
 
-// app.get('/posts',PostController.getAll);
+app.post('/posts', checkAuth, postCreateValidation, PostController.create);
 // app.get('/posts:id', PostController.getOne);
-app.post('/posts', checkAuth,postCreateValidation, PostController.create);
+app.get('/posts', PostController.getAll);
 // app.delete('/posts', PostController.remove);
 // app.patch('/posts', PostController.update);
 
