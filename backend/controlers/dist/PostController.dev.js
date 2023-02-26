@@ -17,10 +17,11 @@ var getAll = function getAll(req, res) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return regeneratorRuntime.awrap(_Post["default"].find());
+          return regeneratorRuntime.awrap(_Post["default"].find().populate('user').exec());
 
         case 3:
           posts = _context.sent;
+          //String on 2 fuctions (find and get in MongoDB post info) (for developers)
           res.json(posts);
           _context.next = 11;
           break;
@@ -28,9 +29,9 @@ var getAll = function getAll(req, res) {
         case 7:
           _context.prev = 7;
           _context.t0 = _context["catch"](0);
-          console.log(err);
+          console.log(_context.t0);
           res.status(500).json({
-            message: 'не удалось получить статью'
+            message: 'не удалось получить статьи'
           });
 
         case 11:
@@ -39,7 +40,47 @@ var getAll = function getAll(req, res) {
       }
     }
   }, null, null, [[0, 7]]);
-};
+}; //Error Function on get one post
+// export const getOne = async (req,res) => {
+//     try {
+//         const postId = req.params.id;
+//         PostModel.findOneAndUpdate(
+//         {
+//             _id: postId,
+//         },
+//         {
+//             $inc:{ viewsCount: 1 },
+//         },
+//         {
+//             returnDocument:'after',
+//         },
+//         (err,doc)=>
+//         {
+//             if(err)
+//             {
+//                 console.log(err);
+//                 res.status(500).json
+//                 ({
+//                     message:'не удалось вернуть статью',
+//                 });
+//             }
+//             if (!doc ){
+//                 return res.status(404).json({
+//                     message:'статья не найдена',
+//                 });
+//             } 
+//             res.json(doc);
+//         }
+//         );
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json({
+//             message:'не удалось получить статью',
+//         });
+//         }
+// };
+//Main Error Function (Here cannot create more 2 functions)
+
 
 exports.getAll = getAll;
 
