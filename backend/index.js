@@ -1,11 +1,25 @@
+<<<<<<< HEAD
 import express from 'express';
 import fs from 'fs';
 import multer from 'multer';
 import cors from 'cors';
+=======
+//Library
+import express from "express";
+import mongoose from "mongoose";
+import React from 'react';
+>>>>>>> 19efaf3c70a84569aa3174fdda0da6681ad200fe
 
 import mongoose from 'mongoose';
 
+<<<<<<< HEAD
 import { registerValidation, loginValidation, postCreateValidation } from './validations.js';
+=======
+import { registerValidation, loginValidation, postCreateValidation } from './validations/auth.js';
+import { BrowserRouter } from 'react-router-dom';
+import checkAuth from "./utils/checkAuth.js";
+// import user from "./models/User.js";
+>>>>>>> 19efaf3c70a84569aa3174fdda0da6681ad200fe
 
 import { handleValidationErrors, checkAuth } from './utils/index.js';
 
