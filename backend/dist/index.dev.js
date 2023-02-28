@@ -10,14 +10,19 @@ var _cors = _interopRequireDefault(require("cors"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
+var _react = _interopRequireDefault(require("react"));
+
 var _validations = require("./validations.js");
 
 var _index = require("./utils/index.js");
 
 var _index2 = require("./controllers/index.js");
 
+var _assert = require("assert");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// import { BrowserRouter } from 'react-router-dom';
 _mongoose["default"];
 
 _mongoose["default"].set('strictQuery', true);
@@ -29,9 +34,6 @@ _mongoose["default"].connect('mongodb+srv://admin:wwwwww@cluster0.aarwuzf.mongod
 });
 
 var app = (0, _express["default"])();
-app.get('/', function (req, res) {
-  res.send('111hello world');
-});
 
 var storage = _multer["default"].diskStorage({
   destination: function destination(_, __, cb) {
