@@ -36,6 +36,10 @@ const storage = multer.diskStorage({
   },
 });
 
+app.get('/', function (req, res) {
+  res.send('111hello world');
+});
+
 const upload = multer({ storage });
 
 app.use(express.json());

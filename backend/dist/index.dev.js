@@ -48,6 +48,9 @@ var storage = _multer["default"].diskStorage({
   }
 });
 
+app.get('/', function (req, res) {
+  res.send('111hello world');
+});
 var upload = (0, _multer["default"])({
   storage: storage
 });
