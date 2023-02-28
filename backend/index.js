@@ -1,10 +1,12 @@
 //Library
 import express from "express";
 import mongoose from "mongoose";
+import React from 'react';
 
 //Models
 
 import { registerValidation, loginValidation, postCreateValidation } from './validations/auth.js';
+import { BrowserRouter } from 'react-router-dom';
 import checkAuth from "./utils/checkAuth.js";
 // import user from "./models/User.js";
 
