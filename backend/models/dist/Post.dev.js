@@ -27,14 +27,12 @@ var PostSchema = new _mongoose["default"].Schema({
     type: Number,
     "default": 0
   },
-  imageUrl: String,
   user: {
     type: _mongoose["default"].Schema.Types.ObjectId,
     ref: 'User',
-    required: true // unique:true,
-
+    required: true
   },
-  avatarUrl: String
+  imageUrl: String
 }, {
   timestamps: true
 });

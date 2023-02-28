@@ -1,69 +1,76 @@
-//Library
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import fs from 'fs';
+import multer from 'multer';
+import cors from 'cors';
 
-//Models
+import mongoose from 'mongoose';
 
-import { registerValidation, loginValidation, postCreateValidation } from './validations/auth.js';
-import checkAuth from "./utils/checkAuth.js";
-// import user from "./models/User.js";
+import { registerValidation, loginValidation, postCreateValidation } from './validations.js';
 
-//Functions
+import { handleValidationErrors, checkAuth } from './utils/index.js';
 
-import * as UserControl from "./controlers/UserControler.js";
-import * as PostController from "./controlers/PostController.js";
+import { UserController, PostController } from './controllers/index.js';
 
-//This Start Main Code
-
-
-    //DataBase Connection
-
-mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://admin:wwwwww@cluster0.aarwuzf.mongodb.net/blog?retryWrites=true&w=majority',)
-.then(() => console.log('DB connect'))
-.catch((err) => console.log('DB error', err));
-
-    //Initialization Library Express
+mongoose
+  mongoose.set('strictQuery', true);
+  mongoose.connect('mongodb+srv://admin:wwwwww@cluster0.aarwuzf.mongodb.net/blog?retryWrites=true&w=majority')
+  .then(() => console.log('DB connect'))
+  .catch((err) => console.log('DB error', err));
 
 const app = express();
 
-app.use(express.json());
-
 
 app.get('/',(req,res) => {
-    res.send('111hello world');
+  res.send('111hello world');
 });
 
-//Backend requests
-
-    //Autherization
-
-app.post('/auth/login',loginValidation, UserControl.login);
-
-    //MainLogisticCode for add data in MongoDB (Registration)
-
-app.post('/auth/register',registerValidation , UserControl.register);
-
-    //Checkin Users
-
-app.get('/auth/me',checkAuth, UserControl.getMe);
-
-
-//Post
-
-app.post('/posts', checkAuth, postCreateValidation, PostController.create);
-// app.get('/posts:id', PostController.getOne);
-app.get('/posts', PostController.getAll);
-// app.delete('/posts', PostController.remove);
-// app.patch('/posts', PostController.update);
-
-
-
-//Server
-
-app.listen(444,(err)=>{
-    if(err){
-        return console.log(err);
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => {
+    if (!fs.existsSync('uploads')) {
+      fs.mkdirSync('uploads');
     }
-    console.log('server ok')
+    cb(null, 'uploads');
+  },
+  filename: (_, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
+app.use(express.json());
+app.use(cors());
+app.use('/uploads', express.static('uploads'));
+
+app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login);
+app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register);
+app.get('/auth/me', checkAuth, UserController.getMe);
+
+app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
+  res.json({
+    url: `/uploads/${req.file.originalname}`,
+  });
+});
+
+app.get('/tags', PostController.getLastTags);
+
+app.get('/posts', PostController.getAll);
+app.get('/posts/tags', PostController.getLastTags);
+app.get('/posts/:id', PostController.getOne);
+app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create);
+app.delete('/posts/:id', checkAuth, PostController.remove);
+app.patch(
+  '/posts/:id',
+  checkAuth,
+  postCreateValidation,
+  handleValidationErrors,
+  PostController.update,
+);
+
+app.listen(process.env.PORT || 444, (err) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  console.log('Server OK');
 });

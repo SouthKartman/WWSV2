@@ -1,63 +1,76 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 var _express = _interopRequireDefault(require("express"));
+
+var _fs = _interopRequireDefault(require("fs"));
+
+var _multer = _interopRequireDefault(require("multer"));
+
+var _cors = _interopRequireDefault(require("cors"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _auth = require("./validations/auth.js");
+var _validations = require("./validations.js");
 
-var _checkAuth = _interopRequireDefault(require("./utils/checkAuth.js"));
+var _index = require("./utils/index.js");
 
-var UserControl = _interopRequireWildcard(require("./controlers/UserControler.js"));
-
-var PostController = _interopRequireWildcard(require("./controlers/PostController.js"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _index2 = require("./controllers/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-//Library
-//Models
-// import user from "./models/User.js";
-//Functions
-//This Start Main Code
-//DataBase Connection
-_mongoose["default"].set('strictQuery', false);
+_mongoose["default"];
+
+_mongoose["default"].set('strictQuery', true);
 
 _mongoose["default"].connect('mongodb+srv://admin:wwwwww@cluster0.aarwuzf.mongodb.net/blog?retryWrites=true&w=majority').then(function () {
   return console.log('DB connect');
 })["catch"](function (err) {
   return console.log('DB error', err);
-}); //Initialization Library Express
-
+});
 
 var app = (0, _express["default"])();
-app.use(_express["default"].json());
 app.get('/', function (req, res) {
   res.send('111hello world');
-}); //Backend requests
-//Autherization
+});
 
-app.post('/auth/login', _auth.loginValidation, UserControl.login); //MainLogisticCode for add data in MongoDB (Registration)
+var storage = _multer["default"].diskStorage({
+  destination: function destination(_, __, cb) {
+    if (!_fs["default"].existsSync('uploads')) {
+      _fs["default"].mkdirSync('uploads');
+    }
 
-app.post('/auth/register', _auth.registerValidation, UserControl.register); //Checkin Users
+    cb(null, 'uploads');
+  },
+  filename: function filename(_, file, cb) {
+    cb(null, file.originalname);
+  }
+});
 
-app.get('/auth/me', _checkAuth["default"], UserControl.getMe); //Post
-
-app.post('/posts', _checkAuth["default"], _auth.postCreateValidation, PostController.create); // app.get('/posts:id', PostController.getOne);
-
-app.get('/posts', PostController.getAll); // app.delete('/posts', PostController.remove);
-// app.patch('/posts', PostController.update);
-//Server
-
-app.listen(444, function (err) {
+var upload = (0, _multer["default"])({
+  storage: storage
+});
+app.use(_express["default"].json());
+app.use((0, _cors["default"])());
+app.use('/uploads', _express["default"]["static"]('uploads'));
+app.post('/auth/login', _validations.loginValidation, _index.handleValidationErrors, _index2.UserController.login);
+app.post('/auth/register', _validations.registerValidation, _index.handleValidationErrors, _index2.UserController.register);
+app.get('/auth/me', _index.checkAuth, _index2.UserController.getMe);
+app.post('/upload', _index.checkAuth, upload.single('image'), function (req, res) {
+  res.json({
+    url: "/uploads/".concat(req.file.originalname)
+  });
+});
+app.get('/tags', _index2.PostController.getLastTags);
+app.get('/posts', _index2.PostController.getAll);
+app.get('/posts/tags', _index2.PostController.getLastTags);
+app.get('/posts/:id', _index2.PostController.getOne);
+app.post('/posts', _index.checkAuth, _validations.postCreateValidation, _index.handleValidationErrors, _index2.PostController.create);
+app["delete"]('/posts/:id', _index.checkAuth, _index2.PostController.remove);
+app.patch('/posts/:id', _index.checkAuth, _validations.postCreateValidation, _index.handleValidationErrors, _index2.PostController.update);
+app.listen(process.env.PORT || 444, function (err) {
   if (err) {
     return console.log(err);
   }
 
-  console.log('server ok');
+  console.log('Server OK');
 });
