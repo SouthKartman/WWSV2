@@ -5,10 +5,6 @@ import cors from 'cors';
  
 import mongoose from 'mongoose';
 
-//import React from 'react';
-
-// import { BrowserRouter } from 'react-router-dom';
-
 import { registerValidation, loginValidation, postCreateValidation } from './validations.js';
 
 import { handleValidationErrors, checkAuth } from './utils/index.js';
