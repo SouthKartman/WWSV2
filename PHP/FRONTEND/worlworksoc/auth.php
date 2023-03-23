@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
+    <link rel = "stylesheet" href="styles/auth.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
+    
     <script src="logreg.js"></script>
 </head>
 <body style="overflow:hidden;">
@@ -61,7 +61,7 @@
             }
         }
     ?>
-    <style>
+    <!-- <style>
         input{
             font-size:2vw;
             margin-top:2vw;
@@ -88,8 +88,8 @@
             transition:0.5s;
             margin-top:200vh;
         }
-    </style>
-    <p style="position:absolute; bottom:0;right:0;">В браузерах MSEdge, Explorer и подобных, вёрстка может отображаться некорректно</p>
+    </style> -->
+    <!-- <p style="position:absolute; bottom:0;right:0;">В браузерах MSEdge, Explorer и подобных, вёрстка может отображаться некорректно</p>
     <div id="login" style=" <?php if (isset($_POST['go_reg'])) {echo("margin-top:-100vh;"); }else{echo("margin-top:30vh;");} ?>">
         <form action="#" method="POST">    
             <h1>Вход: </h1>
@@ -123,6 +123,70 @@
             <p style="text-align:right; margin-top:1vw;cursor:pointer;" onclick="toLogin()" >Вход</p>
             <input type="submit" value="Зарегистрироватся" style="width:100%;" name="go_reg">
         </form>
+    </div> -->
+
+    
+
+
+
+
+
+
+
+    <div class="container">
+  <div class="overlay" id="overlay">
+    <div class="sign-in" id="sign-in">
+      <h1>Welcome Back!</h1>
+      <p>To keep connected with us please login with your personal info</p>
+      <button class="switch-button" id="slide-right-button">Sign In</button>
     </div>
+    <div class="sign-up" id="sign-up">
+      <h1 class="LOGO">WorlWork
+        Social</h1>
+      <p>Enter your personal details and start a journey with us</p>
+      <button class="switch-button" id="slide-left-button">Sign Up</button>
+    </div>
+  </div>
+  <div class="form">
+    <div class="sign-in" id="sign-in-info">
+      <h1>Sign In</h1>
+      <div class="social-media-buttons">
+        
+        
+      </div>
+      <p class="small">Use your email account:</p>
+      <form id="sign-in-form" id="login" method="POST">      
+        <input placeholder="Логин" name="login" minlength="4" required/>
+        <input type="password" placeholder="Пароль" name="password" minlength="6" required/>
+<!--         <p class="forgot-password">Forgot your password?</p> -->
+        <button class="control-button in" name="go_log">Sign In</button>
+      </form>
+    </div>
+    <div class="sign-up" id="sign-up-info">
+      <h1>Create Account</h1>
+      <div class="social-media-buttons">
+        <div>
+          <p class="small" >
+            
+          </p>
+        </div>
+      </div>
+      <p class="small">Use your email for registration:</p>
+      <form id="sign-up-form" method="POST">
+        <input type="text" placeholder="Логин*" name="login" minlength="4" required/>
+        <input type="password" placeholder="Пароль*" name="password" minlength="6" required />
+        <input type="email" placeholder="Mail*" name="mail" required/>
+        <input type="text" placeholder="Место жительства" name="mest_jit"/>
+        <input type="text" placeholder="Родился" name="rodil"/>
+        <input type="text" placeholder="Работает" name="rab"/>
+        <input type="text" placeholder="Учился/Учится" name="uch"/>
+        <input type="text" placeholder="Семейное положение" name="polog"/>
+        <input type="text" placeholder="Увлечение" name="evlech"/>
+        <button type="submit" value="Зарегистрироватся" name="go_reg" class="control-button up">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
+<script src="js/authform.js"></script>
 </html>

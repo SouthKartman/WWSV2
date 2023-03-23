@@ -32,7 +32,7 @@ while ($item = mysqli_fetch_assoc($query)){
         <div class="user-card-posts-creator">
         <div id="avatar" style="background-image:url(<?php echo($formuserinfo->avatar);?>); background-repeat: no-repeat;background-size: cover;"></div>
             <h2 id="username" class="link" style="cursor:pointer;"><a href="?home=&id=<?php echo $fromuser['id']; ?>" target="_blank"> <?php echo($fromuser['name']); ?></a></h2>&nbsp;
-            <h2 id="userpage" class="link" style="cursor:pointer;"><a href="?home=&id=<?php echo $user['id']; ?>" target="_blank"><?php if ($user['id'] != $_SESSION['user']['id']){echo("на странице ".$user['name']);}?></a></h2>
+            <!-- <h2 id="userpage" class="link" style="cursor:pointer;"><a href="?home=&id=<?php echo $user['id']; ?>" target="_blank"><?php if ($user['id'] != $_SESSION['user']['id']){echo("Новости на странице ".$user['name']);}?></a></h2> -->
         </div>
         <p id="message" style="margin-top:1vw;"><?php echo($item['message']); ?></p>
 

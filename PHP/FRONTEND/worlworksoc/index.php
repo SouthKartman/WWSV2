@@ -17,11 +17,12 @@ if (!isset($_SESSION['user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WWS</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/message.css">
     <link rel="stylesheet" href="styles/header.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
-    
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 
 <body>
@@ -158,5 +159,4 @@ if(isset($_GET['id'])){
         </div>
     </div>
 </body>
-
 </html>
