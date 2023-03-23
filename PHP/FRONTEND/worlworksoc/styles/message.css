@@ -30,7 +30,7 @@ input {
 .grid {
   display: grid;
   grid-template-columns: 5rem 0rem 1fr 20rem;
-  height: 100vh;
+  height: 87vh;
 }
 
 /* Nav */
@@ -119,6 +119,7 @@ input {
   justify-content: space-between;
   background: rgb(40, 42, 46);
   padding: 0 1rem;
+  display: none;
 }
 
 .channel__item {
@@ -194,7 +195,7 @@ input {
   background: rgb(54, 56, 62);
 }
 .main__chat {
-  height: calc(100vh - 10rem);
+  height: calc(85vh - 10rem);
   overflow-y: scroll;
   padding: 1rem;
 }

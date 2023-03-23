@@ -29,27 +29,13 @@ input {
 /* Root grid */
 .grid {
   display: grid;
-  grid-template-columns: 5rem 0rem 1fr 20rem;
+  grid-template-columns: 5rem 20rem 1fr 20rem;
   height: 100vh;
 }
 
 /* Nav */
 .nav {
   background: rgb(32, 34, 36);
-  overflow-y: scroll;
-}
-.nav::-webkit-scrollbar
-{
-    width: 5px;
-    /* height: 100%; */
-    background-color: #272728;
-    border-radius: 30px;
-}
-.nav::-webkit-scrollbar-thumb
-{
-    background-color: #0e000b;
-    border-radius: 30px;
-    
 }
 .nav__container {
   display: flex;
@@ -88,7 +74,7 @@ input {
   background-color: rgb(114, 136, 218);
   border-radius: 0.25rem;
   content: attr(data-tooltip);
-  /* padding: 0.25rem 0.5rem; */
+  padding: 0.25rem 0.5rem;
   white-space: nowrap;
 }
 .nav__server:hover {
@@ -141,9 +127,8 @@ input {
 }
 
 .profile__badge {
-  /* display: flex; */
+  display: flex;
   align-items: center;
-  display: none;
 }
 
 .profile__avatar,
@@ -194,18 +179,6 @@ input {
   height: calc(100vh - 10rem);
   overflow-y: scroll;
   padding: 1rem;
-}
-.main__chat::-webkit-scrollbar
-{
-    width: 8px;
-    /* height: 100%; */
-    background-color: #272728;
-    border-radius: 30px;
-}
-.main__chat::-webkit-scrollbar-thumb
-{
-    background-color: #0e000b;
-    border-radius: 30px;
 }
 .main__post {
   display: flex;
@@ -288,9 +261,8 @@ input {
 }
 
 .settings__group {
-  /* display: flex; */
+  display: flex;
   flex-direction: row;
-  display: none;
 }
 
 .group__setting {
@@ -359,18 +331,4 @@ input {
   display: flex;
   align-items: center;
   border-bottom: 0.025rem solid rgb(32, 34, 36);
-}
-
-/*# sourceMappingURL=discord.css.map */
-
-
-/* media */
-@media screen and (max-width: 600px) {
-    .grid {
-        grid-template-columns: 5rem 0rem 1fr 0rem;
-        
-    }
-    .footer{
-        display: none;
-    }
-}
+}/*# sourceMappingURL=discord.css.map */

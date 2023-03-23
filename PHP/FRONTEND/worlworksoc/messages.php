@@ -71,41 +71,9 @@ function send() {
 
 
 
-<div class="messages-main">
-    <div class="m-left">
-    <?php
-        $allfriends = $sessionInfo->friends;
-        for ($i=0; $i < count($allfriends); $i++) { 
-            if ($allfriends != ''){
-                $user = mysqli_fetch_assoc(mysqli_query($connections, "SELECT * FROM `users` WHERE `id`=".$allfriends[$i]));
-                ?>
-                    <div class="messages-friend" onclick="startLoop(<?php echo $user['id'].',\''.$user['name'].'\''; ?>)">
-                        <div style="background-image:url(<?php echo(json_decode($user['info_json'])->avatar);?>);width:3vw; height:3vw; background-repeat: no-repeat;background-size: contain;"></div>
-                        <h2><?php echo($user['name']); ?></h2>
-                    </div>
-                <?php
-            }
-        }
-    ?>
-    </div>
-    <div class="m-right">
-        <div class="messages" id="idmess">
-            <div class="message" id="m-main" style="display:none; margin-left:0%">
-                <p>ebal1</p>
-            </div>
-        </div>
-        <div style="margin-left:4%; width:92%;color:black;">
-        <p id="sobesed" style="float:left"></p>
-        <p id="your" style="float:right"></p>
-        </div>
-        <div class="user-input" style="display:none">
-            <textarea name="message" id="mess" cols="30" rows="10"></textarea>
-            <img draggable="false" style="width:5%;cursor:pointer;" src="webicons/send.svg" alt="" onclick="send()">
-        </div>
-    </div>
-</div>
 
-<link rel="stylesheet" href="styles/message.css">
+
+
 
 <div class="grid">
         <div class="nav">
@@ -200,7 +168,7 @@ function send() {
                 </div>
                 <div class="main_input" style="display:none;">
                     <div class="input__container">
-                        <input class="user-input"  name="message" id="mess" cols="30" rows="10" placeholder="Enter message"></input>
+                        <input  name="message" id="mess" cols="30" rows="10" placeholder="Enter message"></input>
                     </div>
                     <img draggable="false" style="width:5%;cursor:pointer;" src="webicons/send.svg" alt="" onclick="send()">
                 </div>
