@@ -1,3 +1,4 @@
+
 <?php 
     $user = null;
     $info = "";
@@ -58,7 +59,7 @@
     }
 
     if (isset($_POST['postinuserprofile'])){
-
+                        
         if (trim($_POST['message']) != ''){
             $images = array();
             for ($i=0; $i < 4; $i++) {
@@ -249,3 +250,12 @@
         <?php } ?>
     </div>
 </div>
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-<?php include("include/config.php"); 
+<?php include("include/config.php");
 
 if (isset($_GET['exit'])){
     unset($_SESSION['user']);
@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])){
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles/message.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/home.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
