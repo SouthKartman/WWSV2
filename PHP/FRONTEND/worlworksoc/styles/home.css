@@ -580,15 +580,20 @@ body {
   }
 }
 
+
 .home_status-share {
   background-color: #1b86f9;
   border: none;
   color: #fff;
   border-radius: 4px;
   padding: 10px 20px;
-  margin-left: auto;
+  /* margin-left: auto; */
   box-shadow: 0 0 20px #1b86f9;
   cursor: pointer;
+}
+.home_status-share-button
+{
+  margin-left: auto;
 }
 
 .home_album {
@@ -943,3 +948,14 @@ display: none;
   display: flex;
   /* margin-bottom: 20px; */
 }
+
+@media screen and (max-width: 700px)
+ {
+  .home_album-content {
+      width: 400px;
+  }
+  .myarticle{
+    width: 400px;
+    font-size: 5px;
+  }
+ }

@@ -25,9 +25,6 @@
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-}
 
 html {
   box-sizing: border-box;
@@ -56,12 +53,12 @@ body {
 .header {
   height: 70px;
   width: 100%;
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
   display: flex;
-  background-color: var(--header-bg-color);
+  background-color: #151728;
   align-items: center;
   padding: 0 25px;
-  color: var(--body-color);
+  color: #151728;
   font-size: 15px;
 }
 
@@ -80,7 +77,7 @@ body {
   height: 34px;
   text-align: center;
   margin-top: 17px;
-  color: black;
+  color: #fff;
   flex-shrink: 0;
 }
 .logo:hover {
@@ -190,6 +187,20 @@ body {
 
 .menu-item.active {
   color: var(--logo-color);
+}
+@media (max-width: 519px) {
+  .user-settings{
+    display: none;
+  }
+  #addimg
+  {
+    display: none;
+  }
+}
+@media (max-width: 250px) {
+  .header{
+    display: none;
+  }
 }
 
 @media (max-width: 750px) {
