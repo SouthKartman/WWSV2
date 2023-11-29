@@ -1,6 +1,6 @@
 # WorlWorkSocial - Mini Social Network
 
-Welcome to MicroSocial - a small social network developed in PHP! This project provides features such as adding friends, creating posts, customizing profiles, and sending messages for easy and enjoyable communication.
+Welcome to WorlWorkSocial - a small social network developed in PHP! This project provides features such as adding friends, creating posts, customizing profiles, and sending messages for easy and enjoyable communication.
 
 ![image](https://github.com/SouthKartman/WWSV2/assets/93534577/aac17d93-b069-42ca-84e7-c6263be2d613)
 
@@ -59,7 +59,7 @@ Welcome to MicroSocial - a small social network developed in PHP! This project p
 
 ## Notes
 
-Create your own small social network with MicroSocial - the perfect place for easy communication and news sharing!
+Create your own small social network with WorlWorkSocial - the perfect place for easy communication and news sharing!
 
 <br><br><br>
 
