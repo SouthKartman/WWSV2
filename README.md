@@ -2,8 +2,8 @@
 
 Welcome to WorlWorkSocial - a small social network developed in PHP! This project provides features such as adding friends, creating posts, customizing profiles, and sending messages for easy and enjoyable communication.
 
- 
-![image](https://github.com/SouthKartman/WWSV2/assets/93534577/91611195-7b0b-4663-92ed-ccc9d08f48cd)
+ ![image](https://github.com/SouthKartman/WWSV2/assets/93534577/aac17d93-b069-42ca-84e7-c6263be2d613)
+
 
 
 ## Features
@@ -25,7 +25,7 @@ Welcome to WorlWorkSocial - a small social network developed in PHP! This projec
  
 <BR><BR>
 
-![image](https://github.com/SouthKartman/WWSV2/assets/93534577/aac17d93-b069-42ca-84e7-c6263be2d613)
+![image](https://github.com/SouthKartman/WWSV2/assets/93534577/91611195-7b0b-4663-92ed-ccc9d08f48cd)
 
 <BR><BR>
 ![image](https://github.com/SouthKartman/WWSV2/assets/93534577/39968676-66e7-4eac-a555-a2099ba4758e)
