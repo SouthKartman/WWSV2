@@ -1,4 +1,4 @@
-# WorlWorkSocial - Mini Social Network
+# WorlWorkSocial - Mini Social Network (On dev)
 
 Welcome to WorlWorkSocial - a small social network developed in PHP! This project provides features such as adding friends, creating posts, customizing profiles, and sending messages for easy and enjoyable communication.
 
@@ -63,7 +63,7 @@ Create your own small social network with WorlWorkSocial - the perfect place for
 
 <br><br><br>
 
-# WorlWorkSocial - Мини-Социальная Сеть
+# WorlWorkSocial - Мини-Социальная Сеть (В разработке)
 
 Добро пожаловать в WorlWorkSocial - маленькую социальную сеть, разработанную на PHP! Этот проект предоставляет функционал добавления друзей, создания постов и их удаления, кастомизации профилей и отправки сообщений для легкого и приятного общения.
 
