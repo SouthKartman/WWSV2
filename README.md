@@ -21,13 +21,22 @@ Welcome to MicroSocial - a small social network developed in PHP! This project p
 
 - **Sending Messages:**
   - Exchange messages with friends in a convenient chat.
+<BR><BR>
+![image](https://github.com/SouthKartman/WWSV2/assets/93534577/39968676-66e7-4eac-a555-a2099ba4758e)
+<BR><BR>
+![image](https://github.com/SouthKartman/WWSV2/assets/93534577/69ba9914-330d-4be1-a28e-b52edad0de1c)
+<BR><BR>
+![image](https://github.com/SouthKartman/WWSV2/assets/93534577/998259bc-13ad-4cb4-aa46-8ba975b8710a)
+<BR><BR>
+
+
 
 ## Project Setup
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/username/MicroSocial.git
-
+   git clone https://github.com/SouthKartman/WWSV2.git
+   
 1. Database Setup:
  - Create a MySQL database and import the database.sql file.
 2. Configuration Setup:
